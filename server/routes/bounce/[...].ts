@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  if (location && location.length > 0 ) {
+  if (location && location.length > 0) {
     return sendRedirect(event, location, 302)
   }
   else {
