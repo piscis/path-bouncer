@@ -1,15 +1,29 @@
 {
-  "name": "nuxt-app",
+  "name": "url-bouncer",
   "private": true,
+  "engines": {
+    "node": "18.x",
+    "pnpm": "8.x"
+  },
   "scripts": {
+    "clean": "rimraf dist .output .nuxt node_modules",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "nuxi test",
+    "test:watch": "nuxi test --dev --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@types/node": "^18",
-    "nuxt": "^3.4.2"
+    "@antfu/eslint-config": "^0.38.5",
+    "@nuxt/test-utils": "^3.4.2",
+    "@types/node": "^18.15.13",
+    "eslint": "^8.38.0",
+    "nuxt": "^3.4.2",
+    "rimraf": "^5.0.0",
+    "vitest": "^0.30.1"
   }
 }
