@@ -1,7 +1,9 @@
 import { get as _get } from 'lodash-es'
 
 export default defineEventHandler(async (event) => {
-  const location = _get(event, 'context.params._', '')
+  const path = _get(event, 'context.params._', '')
+  const proto = _get(event, 'context.params.proto', '')
+  const location = `${proto}://${path}`
 
   if (!isValidUrl(location)) {
     throw createError({
@@ -10,7 +12,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  if (location && location.length > 0) {
+  if (path && path.length > 0) {
     return sendRedirect(event, location, 302)
   }
   else {
